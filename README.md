@@ -6,7 +6,6 @@
        2. gif to c header converstion
        3. png to C header convertion
        
- ### Input folder structure
  
  ### Packages
  ```
