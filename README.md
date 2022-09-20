@@ -16,12 +16,15 @@
  ### Folder structure
  
 ```
-
-images-
-      #keep png images in folder, that your going to convert has gif
-      cool
-      #single png keep outside the folder, will directly convert C header
-      nikola_tesla.png
+lvgl-png-and-gif-image-converter
+       -core
+            png_gif_c_raw.py  
+       -images-
+             #keep png images in folder, that your going to convert has gif
+             cool
+             #single png keep outside the folder, will directly convert C header
+             nikola_tesla.png
+        -main.py
 
 ```
 After setup, run the main.py File. It will generate gif_png and Cheaders Folder
