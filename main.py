@@ -1,3 +1,4 @@
+import os
 import subprocess
 import natsort
 from core.png_gif_c_raw import *
@@ -23,9 +24,9 @@ def convert_gif(subdir, add_outfd, files_png):
 def pngs_to_gifs(folders):
     for (subdir, dirs, files) in os.walk("images", topdown=False):
         files_png = natsort.natsorted(files, reverse=False)
-        sub_splt = subdir.split("/")
+        sub_splt = subdir.split(os.sep)
         add_outfd = folders[0] + sub_splt[len(sub_splt) - 1]
-
+        print(sub_splt)
         if len(sub_splt) == 2:
             convert_gif(subdir, add_outfd, files_png)
         else:
@@ -39,10 +40,10 @@ def optimize_gif_file():
     if len(gif_files) == 0:
         print("PNG to GIF conversion failed., Give an input PNG in the images folder and follow the folder structure properly!!!")
     else:
-        print("Total", len(gif_files), "gifs and cheaders")
+        print("Total", len(gif_files), "gifs and cheader")
         for gf in gif_files:
             subprocess.run('convert {} -fuzz 0.1% -layers Optimize {}'.format(gf, gf), shell=True)
-            gs = gf.split("/")
+            gs = gf.split(os.sep)
             ln = len(gs)
             print(gs[ln - 1], "Converted successfully")
             gfile.append(gf)
